@@ -50,7 +50,7 @@ enum class GROUP_TYPE
 enum class SCENE_TYPE
 {
 	START,
-	SCENE_01,
+	FIGHT,
 	TOOL,
 	SCENE_02,
 	END,
@@ -77,3 +77,4 @@ enum class EVENT_TYPE
 
 	END,
 };
+

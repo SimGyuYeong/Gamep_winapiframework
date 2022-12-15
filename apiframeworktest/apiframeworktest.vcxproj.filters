@@ -77,14 +77,14 @@
     <Filter Include="Engine\03. Manager\EventMgr">
       <UniqueIdentifier>{07718400-e5bc-4fe5-9698-ec9b297ce34f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\05. Scene\Scene_01">
-      <UniqueIdentifier>{08fc7cdf-bc88-4ea8-9fe5-a0ba2266348f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\07. Component\Animation">
       <UniqueIdentifier>{58b065ea-6c5b-4536-9b64-c6b4c80b0082}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\03. Manager\SoundMgr">
       <UniqueIdentifier>{e09d7cab-b2dc-4a5f-8924-8af5317c88d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Fight">
+      <UniqueIdentifier>{5d7b1623-fab5-4a5c-8610-3eac40761125}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -172,9 +172,6 @@
     <ClInclude Include="func.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_01.h">
-      <Filter>Engine\05. Scene\Scene_01</Filter>
-    </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
@@ -183,6 +180,9 @@
     </ClInclude>
     <ClInclude Include="SoundMgr.h">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Fight.h">
+      <Filter>Engine\05. Scene\Scene_Fight</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -266,9 +266,6 @@
     <ClCompile Include="func.cpp">
       <Filter>Engine\01. Header</Filter>
     </ClCompile>
-    <ClCompile Include="Scene_01.cpp">
-      <Filter>Engine\05. Scene\Scene_01</Filter>
-    </ClCompile>
     <ClCompile Include="Animator.cpp">
       <Filter>Engine\07. Component</Filter>
     </ClCompile>
@@ -277,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Fight.cpp">
+      <Filter>Engine\05. Scene\Scene_Fight</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
