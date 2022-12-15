@@ -89,6 +89,12 @@
     <Filter Include="Engine\04. Object\Unit">
       <UniqueIdentifier>{2ba4556a-14a6-4a3b-b3d3-ee88e5432b25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Enhance">
+      <UniqueIdentifier>{ec53d714-5fb0-4181-b81f-a229209ba6af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\UI">
+      <UniqueIdentifier>{29b82e61-d01c-4610-9969-f82c7c047a49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -190,6 +196,12 @@
     <ClInclude Include="Unit.h">
       <Filter>Engine\04. Object\Unit</Filter>
     </ClInclude>
+    <ClInclude Include="Scene_Enhance.h">
+      <Filter>Engine\05. Scene\Scene_Enhance</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>Engine\04. Object\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -286,6 +298,12 @@
     </ClCompile>
     <ClCompile Include="Unit.cpp">
       <Filter>Engine\04. Object\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Enhance.cpp">
+      <Filter>Engine\05. Scene\Scene_Enhance</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>Engine\04. Object\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

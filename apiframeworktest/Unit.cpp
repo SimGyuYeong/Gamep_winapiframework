@@ -33,3 +33,8 @@ void Unit::Update()
 		Attack();
 	}
 }
+
+void Unit::Render(HDC _dc)
+{
+	Component_Render(_dc);
+}
