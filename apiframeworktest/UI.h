@@ -1,13 +1,17 @@
 #pragma once
-class UI
+#include "Object.h"
+#include "BWindow.h"
+
+class UI : public Object
 {
 private:
-	Vec2 m_vPos;
-	Vec2 m_vScale;
-	wstring m_strName;
+	wstring m_strBtnText;
+	wstring const m_strBtn = L"BUTTON";
 public:
 	UI();
 	~UI();
-
+public:
+	void Update() override;
+	void Render(HDC _dc) override;
 };
 

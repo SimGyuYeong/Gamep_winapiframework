@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "BWindow.h"
 class Scene_Enhance :
 	public Scene
 {
