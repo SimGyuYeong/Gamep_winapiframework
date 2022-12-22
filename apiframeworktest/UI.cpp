@@ -19,8 +19,8 @@ void UI::Update()
 
 void UI::Render(HDC _dc)
 {
-
     BWindow* bwindow;
+    bwindow = new BWindow();
     HWND buttonTest = CreateWindow(
         L"BUTTON",  // Predefined class; Unicode assumed 
         L"OK",      // Button text 

@@ -12,6 +12,7 @@ Scene_Enhance::~Scene_Enhance()
 void Scene_Enhance::Enter()
 {
     BWindow* bwindow;
+    bwindow = new BWindow();
     HWND buttonTest = CreateWindow(
         L"BUTTON",  // Predefined class; Unicode assumed 
         L"OK",      // Button text 

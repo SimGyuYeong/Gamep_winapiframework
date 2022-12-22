@@ -3,6 +3,7 @@
 #include "ResMgr.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "Bullet.h"
 
 Unit::Unit() :
 	m_iAttackPower(5),
@@ -22,6 +23,16 @@ Unit::~Unit()
 void Unit::Attack()
 {
 	GetAnimator()->Play(L"UnitAttack", false);
+	Vec2 vBulletPos = GetPos();
+	vBulletPos.y -= GetScale().y / 2.f;
+
+	Bullet* pBullet = new Bullet;
+	pBullet->SetName(L"Bullet_Unit");
+	pBullet->SetPos(vBulletPos);
+	pBullet->SetScale(Vec2(25.f, 25.f));
+	pBullet->SetDir(Vec2(1.f, 0.f));
+	CreateObject(pBullet, GROUP_TYPE::BULLET_PLAYER);
+
 	//TODO: Unit Bullet »ý¼º
 }
 
