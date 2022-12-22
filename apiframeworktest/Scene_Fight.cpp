@@ -12,9 +12,12 @@
 #include "SoundMgr.h"
 #include <random>
 #include "TimeMgr.h"
+#include "ResMgr.h"
 
 void Scene_Fight::Enter()
 {
+	Image* pImg = ResMgr::GetInst()->ImgLoad(L"FightBackground", L"Image\\FightSceneBackground.bmp");
+
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
 	SoundMgr::GetInst()->Play(L"BGM");
 
@@ -35,29 +38,8 @@ void Scene_Fight::Enter()
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
-	// ¸ó½ºÅÍ
-	Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
-	int iMonster = 5;
-	float fMoveDist = 25.f;
-	float fObjScale = 50.f;
-
-	random_device rd;  //Will be used to obtain a seed for the random number engine
-	mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-	uniform_int_distribution<> dis(0, 4);
-
-	float fTime = TimeMgr::GetInst()->GetfDT();
-
-	Monster* pMonsterObj = nullptr;
-	for (int i = 0; i < iMonster; i++)
-	{
-		pMonsterObj = new Monster;
-		pMonsterObj->SetName(L"Monster");
-		pMonsterObj->SetPos(Vec2(vResolution.x, spawnY[dis(gen)]));
-		pMonsterObj->SetScale(Vec2(fObjScale, fObjScale));
-		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-		pMonsterObj->SetMoveDistance(fMoveDist);
-		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
-	}
+	startTime = TimeMgr::GetInst()->GetTime();
+	startTime += delay;
 }
 
 void Scene_Fight::Exit()
@@ -69,6 +51,30 @@ void Scene_Fight::Exit()
 void Scene_Fight::Update()
 {
 	Scene::Update();
+
+	float fTime = TimeMgr::GetInst()->GetTime();
+
+	if (startTime == fTime)
+	{
+		Vec2 vResolution(Vec2(Core::GetInst()->GetResolution()));
+		int iMonster = 5;
+		float fMoveDist = 25.f;
+		float fObjScale = 50.f;
+
+		random_device rd;  //Will be used to obtain a seed for the random number engine
+		mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+		uniform_int_distribution<> dis(0, 4);
+
+		Monster* pMonsterObj = new Monster;
+		pMonsterObj->SetName(L"Monster");
+		pMonsterObj->SetPos(Vec2(vResolution.x, spawnY[dis(gen)]));
+		pMonsterObj->SetScale(Vec2(fObjScale, fObjScale));
+		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+		pMonsterObj->SetMoveDistance(fMoveDist);
+		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+
+		startTime += delay;
+	}
 
 	if (KEY_TAP(KEY::ENTER))
 	{

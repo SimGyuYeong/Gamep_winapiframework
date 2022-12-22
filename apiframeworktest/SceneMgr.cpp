@@ -3,6 +3,7 @@
 #include "Scene_Start.h"
 #include "Scene_Fight.h"
 #include "EventMgr.h"
+
 SceneMgr::SceneMgr()
 	: m_pCurScene(nullptr)
 	, m_arrScene{}

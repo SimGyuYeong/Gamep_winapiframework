@@ -7,6 +7,8 @@ class Player :
 {
 private:
     Image* m_pImage;
+    Image* m_bImage;
+
 public:
     Player();
     //Player(const Player& _origin) 

@@ -3,7 +3,7 @@
 #include "TimeMgr.h"
 #include "Collider.h"
 Monster::Monster()
-	: m_fSpeed(100.f)
+	: m_fSpeed(50.f)
 	, m_fMaxDistance(50.f)
 	, m_vCenterPos(Vec2(0.f,0.f))
 	, m_iDir(1)

@@ -14,5 +14,7 @@ public:
 
 private:
     float spawnY[5];
+    float startTime;
+    float delay = 2.0f;
 };
 

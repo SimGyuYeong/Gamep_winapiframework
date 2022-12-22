@@ -7,6 +7,7 @@ TimeMgr::TimeMgr()
 	, m_llPrevCount{}
 	, m_dDT(0.)
 	, m_iCallCount(0)
+	, m_iSecond(0)
 {
 }
 
@@ -44,13 +45,17 @@ void TimeMgr::Render()
 	++m_iCallCount; //호출횟수 누적
 
 	m_dAcc += m_dDT; //DT(델타타임) 누적
+	if(m_dAcc == 0.5f)
+		m_iSecond++;
+
 	if (m_dAcc >= 1.) //1초가 지났나면 fps 계산
 	{
+		m_iSecond++;
 		m_iFPS = m_iCallCount;
 		m_dAcc = 0.;
 		m_iCallCount = 0;
 		static wchar_t szBuffer[255] = {};
-		swprintf_s(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
+		swprintf_s(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, (float)m_dDT);
 		//		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
 		SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
 	}

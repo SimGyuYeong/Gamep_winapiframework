@@ -11,6 +11,8 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "Core.h"
+
 Player::Player()
 {
 	// collider 새성
@@ -19,6 +21,7 @@ Player::Player()
 
 	// image 업로드
 	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\jiwoo.bmp");
+	m_bImage = ResMgr::GetInst()->ImgLoad(L"FightSceneBackground", L"Image\\FightSceneBackground.bmp");
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
@@ -79,6 +82,20 @@ void Player::CreateBullet()
 }
 void Player::Render(HDC _dc)
 {
+	Component_Render(_dc);
+
+	int Width = Core::GetInst()->GetResolution().x;
+	int Height = Core::GetInst()->GetResolution().y;
+
+	Vec2 vPos = GetPos();
+	//마젠타 색상 뺄때 transparent: 투명한
+	TransparentBlt(_dc
+		, 0
+		, 0
+		, Width, Height
+		, m_bImage->GetDC()
+		, 0, 0, m_bImage->GetWidth(), m_bImage->GetHeight()
+		, RGB(255, 0, 255));
 	Component_Render(_dc);
 	/*int Width = (int)m_pImage->GetWidth();
 	int Height = (int)m_pImage->GetHeight();
